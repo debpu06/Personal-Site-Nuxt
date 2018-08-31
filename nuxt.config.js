@@ -1,6 +1,9 @@
 const contentful = require('contentful')
-const config = require('./.contentful.json')
-//const axios = require('axios')
+let config
+try {
+  // Load the Contentful config from the .contentful.json
+  config = require('./.contentful.json')
+} catch (_) {}
 
 module.exports = {
   modules: [
