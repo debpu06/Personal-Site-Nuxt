@@ -12,3 +12,6 @@ dist
 
 #configs
 .contentful.json
+
+#generated rss
+static/rss.xml
