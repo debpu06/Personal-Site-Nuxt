@@ -34,11 +34,6 @@ import {createClient} from '~/plugins/contentful.js'
 
 const client = createClient()
 export default {
-data() {
-    return {
-      blogPost: []
-    }
-  },
   async asyncData({ params, error, payload }) {
 
     if (payload) return {
@@ -46,22 +41,16 @@ data() {
     };
 
     console.log("QUERY CONTENTFUL")
-    return client.getEntries({
+    return Promise.all([
+      client.getEntries({
         'fields.slug': params.entry,
         'content_type': 'blogPost'
-    }).then(entries => {
+      })
+    ]).then(([entries, posts]) => {
         if (entries.total == 1) return {
             blogPost: entries.items[0]
         }
-    })
-  },
-  components: {
-    
-  },
-  head() {
-    return {
-      title: '',
-    };
-  },
-};
+    }).catch(console.error)
+  }
+}
 </script>
