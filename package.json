@@ -1,7 +1,7 @@
 {
-  "name": "personal-site",
+  "name": "david-boland",
   "version": "1.0.0",
-  "description": "Personal Site",
+  "description": "My Personal Blog site",
   "author": "David Boland <david.boland@makingwaves.com>",
   "private": true,
   "scripts": {

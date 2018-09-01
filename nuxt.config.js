@@ -7,28 +7,23 @@ try {
 
 module.exports = {
   modules: [
-    // Simple usage
     '@nuxtjs/feed',
   ],
   feed: [{
-    path: '/rss.xml', // The route to your feed.
+    path: '/rss.xml',
     async create(feed) {
       feed.options = {
-        title: 'title',
-        description: 'describtion',
+        title: 'David Boland',
+        description: 'Site dedicated to blogging about tech and personal projects',
       }
 
-      console.log("IN FEED")
       client = contentful.createClient({ space: '9usgdrjsks5w', accessToken: '7d2b49e1944191181b9af6fc9423f223158a395fdec3ea177df1d846c5473d2b' })
-
 
       await client.getEntries({
         'content_type': 'blogPost',
         order: '-sys.createdAt'
       }).then(function (posts) {
-        console.log("All Items", posts)
         posts.items.forEach(post => {
-          console.log("Item Title", post.fields.title)
           feed.addItem({
             title: post.fields.title,
             description: post.fields.description,
@@ -36,7 +31,7 @@ module.exports = {
             link: post.fields.slug,
             content: post.fields.body
           })
-          console.log(feed)
+          
           // feed.addCategory('funny')
 
           // feed.addContributor({
@@ -44,11 +39,6 @@ module.exports = {
           // })
         })
       })
-      console.log("RETURNING")
-
-
-
-
     },
     cacheTime: 1000 * 60 * 15,
     type: 'rss2'
@@ -58,11 +48,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'personal-site',
+    title: 'David Boland',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Personal Site' }
+      { hid: 'description', name: 'description', content: 'Site dedicated to blogging about tech and personal projects' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
