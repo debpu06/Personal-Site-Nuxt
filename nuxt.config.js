@@ -86,5 +86,18 @@ module.exports = {
     CTF_PERSON_ID: process.env.CTF_PERSON_ID || config.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID || config.CTF_BLOG_POST_TYPE_ID
   },
+
+  generate: {
+    routes () {
+      return client.getEntries({ content_type: 'blogPost' }).then(entries => {
+        return entries.items.map(entry => {
+          return {
+            route: 'blog/' + entry.fields.slug,
+            payload: entry
+          }
+        })
+      })
+    }
+  }
 }
 

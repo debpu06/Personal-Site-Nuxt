@@ -5,7 +5,9 @@
     <!-- render blog posts -->
     <ul>
       <li v-for="post in posts" :key="post.sys.id">
-        {{ post.fields.title }}
+        <nuxt-link v-bind:to="'blog/'+post.fields.slug">
+          {{ post.fields.title }}
+        </nuxt-link>
       </li>
     </ul>
   </div>
@@ -19,6 +21,7 @@
   export default {
     // `env` is available in the context object
     asyncData ({env}) {
+      console.log("QUERY CONTENTFUL")
       return Promise.all([
         // fetch the owner of the blog
         client.getEntries({

@@ -7,11 +7,11 @@
             <nuxt-link to="/">Back to home</nuxt-link>
           </p>
 
-          <!-- <h1 class="title is-2">
-            {{ category.fields.title }}
+          <h1 class="title is-2">
+            {{ blogPost.fields.title }}
           </h1>
 
-          <hr />
+          <!-- <hr />
 
           <div class="content" v-if="category.fields.message" v-html="$md.render(category.fields.message)"></div>
 
@@ -30,15 +30,38 @@
 </template>
 
 <script>
-import client from '~/plugins/contentful';
+import {createClient} from '~/plugins/contentful.js'
+
+const client = createClient()
 export default {
 data() {
     return {
-      mytest: '',
-      test: []
+      blogPost: []
     }
   },
   async asyncData({ params, error, payload }) {
-  }
+
+    if (payload) return {
+      blogPost: payload
+    };
+
+    console.log("QUERY CONTENTFUL")
+    return client.getEntries({
+        'fields.slug': params.entry,
+        'content_type': 'blogPost'
+    }).then(entries => {
+        if (entries.total == 1) return {
+            blogPost: entries.items[0]
+        }
+    })
+  },
+  components: {
+    
+  },
+  head() {
+    return {
+      title: '',
+    };
+  },
 };
 </script>
