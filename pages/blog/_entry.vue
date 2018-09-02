@@ -34,8 +34,9 @@ import {createClient} from '~/plugins/contentful.js'
 
 const client = createClient()
 export default {
-  async asyncData({ params, error, payload }) {
+  asyncData({ params, error, payload }) {
 
+    console.log("CHECKING PAYLOAD")
     if (payload) return {
       blogPost: payload
     };
@@ -47,6 +48,7 @@ export default {
         'content_type': 'blogPost'
       })
     ]).then(([entries, posts]) => {
+        console.log("CHECKING ENTRIES")
         if (entries.total == 1) return {
             blogPost: entries.items[0]
         }
