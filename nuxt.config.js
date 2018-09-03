@@ -17,7 +17,9 @@ module.exports = {
         description: 'Site dedicated to blogging about tech and personal projects',
       }
 
-      client = contentful.createClient({ space: '9usgdrjsks5w', accessToken: '7d2b49e1944191181b9af6fc9423f223158a395fdec3ea177df1d846c5473d2b' })
+      let space = process.env.CTF_SPACE_ID || config.CTF_SPACE_ID
+      let accessToken = process.env.CTF_CDA_ACCESS_TOKEN || config.CTF_CDA_ACCESS_TOKEN
+      client = contentful.createClient({ space: space, accessToken: accessToken })
 
       await client.getEntries({
         'content_type': 'blogPost',

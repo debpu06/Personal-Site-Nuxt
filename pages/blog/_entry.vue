@@ -1,41 +1,36 @@
 <template>
-  <article class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-offset-2 is-8">
-          <p class="subtitle is-6">
-            <nuxt-link to="/">Back to home</nuxt-link>
-          </p>
-
-          <h1 class="title is-2">
-            {{ blogPost.fields.title }}
-          </h1>
-
-          <!-- <hr />
-
-          <div class="content" v-if="category.fields.message" v-html="$md.render(category.fields.message)"></div>
-
-          <h2>{{mytest}}</h2>
-          
-          <h4 v-for="tes in test" v-bind:key="tes.key">
-            <div>{{tes.fields.title}}</div>
-          </h4> -->
-
-          <!--repeating list-->
-
-        </div>
-      </div>
-    </div>
-  </article>
+  <div class="container">
+        <!-- START ARTICLE FEED -->
+        <section class="articles">
+            <div class="column is-8 is-offset-2">
+                <!-- START ARTICLE -->
+                <div class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title"> {{ blogPost.fields.title }}</p>
+                                <div class="tags has-addons level-item">
+                                    <span classs="tag is-rounded"> {{ blogPost.fields.publishDate }} </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+                            <vuemarkdown :source="blogPost.fields.body"></vuemarkdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  </div>
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-
+import vuemarkdown from 'vue-markdown'
 const client = createClient()
 export default {
   asyncData({ params, error, payload }) {
-
+    console.log("CONTENTFUL", client)
     console.log("CHECKING PAYLOAD")
     if (payload) return {
       blogPost: payload
@@ -53,6 +48,9 @@ export default {
             blogPost: entries.items[0]
         }
     }).catch(console.error)
+  },
+  components: {
+    vuemarkdown
   }
 }
 </script>
