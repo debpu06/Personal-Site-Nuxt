@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
-        <form action="/searchBlog/" method="post">
+        <!-- <form action="/searchBlog/" method="post">
             <div class="field">
                 <div class="columns">
                     <div class="control column is-one-third is-offset-one-third">
@@ -9,7 +9,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form> -->
         <div class="columns">
             <div class="column is-2">
                 <aside class="menu">
@@ -59,19 +59,18 @@
       console.log("QUERY CONTENTFUL")
       return Promise.all([
         // fetch the owner of the blog
-        client.getEntries({
-          'sys.id': env.CTF_PERSON_ID
-        }),
+        // client.getEntries({
+        //   'sys.id': env.CTF_PERSON_ID
+        // }),
         // fetch all blog posts sorted by creation date
         client.getEntries({
           'content_type': env.CTF_BLOG_POST_TYPE_ID,
           order: '-sys.createdAt'
         })
-      ]).then(([entries, posts]) => {
+      ]).then(([posts]) => {
         // return data that should be available
         // in the template
         return {
-          person: entries.items[0],
           posts: posts.items
         }
       }).catch(console.error)

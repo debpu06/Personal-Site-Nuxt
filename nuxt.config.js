@@ -33,7 +33,7 @@ module.exports = {
             link: post.fields.slug,
             content: post.fields.body
           })
-          
+
           // feed.addCategory('funny')
 
           // feed.addContributor({
@@ -57,7 +57,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Site dedicated to blogging about tech and personal projects' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css' },
+      { href: 'https://fonts.googleapis.com/css?family=Open+Sans', rel: 'stylesheet' }
     ]
   },
   /*

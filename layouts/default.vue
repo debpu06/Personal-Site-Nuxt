@@ -1,11 +1,19 @@
 <template>
   <div>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <navbar></navbar>
     <nuxt/>
   </div>
 </template>
+
+<script>
+  import Navbar from '../components/Navbar'
+
+  export default {
+    components: {
+      Navbar
+    }
+  }
+</script>
  
 
 <style>
