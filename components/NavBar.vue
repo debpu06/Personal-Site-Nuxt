@@ -8,8 +8,8 @@
       </div>
       <div class="navbar-menu">
         <div class="navbar-end">
-          <nuxt-link class="navbar-item" to="/about">About Me</nuxt-link>
-          <nuxt-link class="navbar-item" to="/projects">Projects</nuxt-link>
+          <nuxt-link class="navbar-item" to="/about/">About Me</nuxt-link>
+          <nuxt-link class="navbar-item" to="/projects/">Projects</nuxt-link>
         </div>
       </div>
     </nav>

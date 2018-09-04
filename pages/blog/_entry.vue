@@ -56,7 +56,7 @@ export default {
             { name: "twitter:creator", content: "@debpu06" },
             { property: "og:title", content: `${this.blogPost.fields.title}` },
             { property: 'og:description', content: `${this.blogPost.fields.description}` },
-            { property: 'og:url', content: `~/blog/${this.blogPost.fields.slug}`},
+            { property: 'og:url', content: `~/blog/${this.blogPost.fields.slug}/`},
             { property: 'og:type', content: "website" }
         ]
     }
