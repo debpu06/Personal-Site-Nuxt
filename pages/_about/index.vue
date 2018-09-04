@@ -4,28 +4,7 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-3">
-                        <figure class="image is-2by3">
-                            <img src="https://picsum.photos/800/600/?random" alt="Description">
-                        </figure>
-                        <aside class="menu">
-                            <p class="menu-label">
-                                Contact
-                            </p>
-                        </aside>
-                        <nav class="level">
-                            <div class="level-item has-text-centered">
-                                <a href="https://twitter.com/debpu06"><img src="~/assets/twitter-32px.png"></a>
-                            </div>
-                            <div class="level-item has-text-centered">
-                                <a href="https://github.com/debpu06"><img src="~/assets/GitHub-Mark-32px.png"></a>
-                            </div>
-                            <div class="level-item has-text-centered">
-                                <a href="https://linkedin.com/in/debpu06"><img src="~/assets/linkedin-32px.png"></a>
-                            </div>
-                            <div class="level-item has-text-centered">
-                                <a href="mailto:debpu06@protonmail.com"><img src="~/assets/mail-32px.png"></a>
-                            </div>
-                        </nav>
+                        <profilepanel></profilepanel>
                     </div>
                     <div class="column is-7 is-offset-1">
                         <h1 class="title is-2"> name
@@ -45,6 +24,7 @@
 <script>
   import {createClient} from '~/plugins/contentful.js'
   import vuemarkdown from 'vue-markdown'
+  import profilepanel from '~/components/ProfilePanel'
   const client = createClient()
 
   export default {
@@ -69,7 +49,8 @@
       }).catch(console.error)
     },
     components: {
-      vuemarkdown
+      vuemarkdown,
+      profilepanel
     }
   }
 </script>
