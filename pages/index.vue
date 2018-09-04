@@ -16,11 +16,13 @@
                     <div class="box">
                         <p class="menu-label">Topics</p>
                         <ul class="menu-list">
-                            <li>cat1 </li>
-                            <li>cat2 </li>
-                            <li>cat3 </li>
-                            <li>cat4 </li>
-                            <li>cat5 </li>
+                            <li v-for="tag in tags" :key="tag" >
+                              <a>
+                                <span class="tag is-light">
+                                  {{tag}}
+                                </span>
+                              </a>
+                            </li>
                         </ul>
                     </div>
                 </aside>
@@ -30,10 +32,12 @@
                     <div class="tile is-parent is-vertical">
                             <div v-for="post in posts" :key="post.sys.id" class="tile is-parent">
                                 <nuxt-link v-bind:to="'blog/'+post.fields.slug">
-                                    <article class="tile is-child box">
+                                    <article class="tile is-child box is-12">
                                         <p class="title">{{post.fields.title}}</p>
                                         <p class="subtitle">{{post.fields.description}}</p>
-                                        <span  v-for="tag in post.fields.tags" :key="tag" class="tag is-dark">{{tag}}</span>
+                                        <div class="tags">
+                                          <span v-for="tag in post.fields.tags" :key="tag" class="tag is-dark">{{tag}}</span>
+                                        </div>
                                     </article>
                                   </nuxt-link>
                             </div>
@@ -56,13 +60,7 @@
   export default {
     // `env` is available in the context object
     asyncData ({env}) {
-      console.log("QUERY CONTENTFUL")
       return Promise.all([
-        // fetch the owner of the blog
-        // client.getEntries({
-        //   'sys.id': env.CTF_PERSON_ID
-        // }),
-        // fetch all blog posts sorted by creation date
         client.getEntries({
           'content_type': env.CTF_BLOG_POST_TYPE_ID,
           order: '-sys.createdAt'
@@ -70,8 +68,13 @@
       ]).then(([posts]) => {
         // return data that should be available
         // in the template
+        var tags = []
+        posts.items.forEach(post => {
+          tags = tags.concat(post.fields.tags)
+        });
         return {
-          posts: posts.items
+          posts: posts.items,
+          tags: tags
         }
       }).catch(console.error)
     },

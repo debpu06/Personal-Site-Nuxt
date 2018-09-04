@@ -30,20 +30,16 @@ import vuemarkdown from 'vue-markdown'
 const client = createClient()
 export default {
   asyncData({ params, error, payload }) {
-    console.log("CONTENTFUL", client)
-    console.log("CHECKING PAYLOAD")
     if (payload) return {
       blogPost: payload
     };
 
-    console.log("QUERY CONTENTFUL")
     return Promise.all([
       client.getEntries({
         'fields.slug': params.entry,
         'content_type': 'blogPost'
       })
     ]).then(([entries, posts]) => {
-        console.log("CHECKING ENTRIES")
         if (entries.total == 1) return {
             blogPost: entries.items[0]
         }
