@@ -32,7 +32,7 @@
                     <div class="tile is-parent is-vertical">
                             <div v-for="post in posts" :key="post.sys.id" class="tile is-parent">
                                 <nuxt-link v-bind:to="'blog/'+post.fields.slug">
-                                    <article class="tile is-child box is-12">
+                                    <article class="tile is-child box">
                                         <p class="title">{{post.fields.title}}</p>
                                         <p class="subtitle">{{post.fields.description}}</p>
                                         <div class="tags">

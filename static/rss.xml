@@ -4,21 +4,15 @@
         <title>David Boland</title>
         <link></link>
         <description>Site dedicated to blogging about tech and personal projects</description>
-        <lastBuildDate>Mon, 03 Sep 2018 23:58:04 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 Sep 2018 02:48:33 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <item>
             <title><![CDATA[Hello world]]></title>
             <link>hello-world</link>
             <guid>hello-world</guid>
-            <description><![CDATA[Your very first content with Contentful, pulled in JSON format using the Content Delivery API.]]></description>
-            <content:encoded><![CDATA[---
-path: "/hello-world"
-date: "2017-07-12T17:12:33.962Z"
-title: "My First Test Post"
----
-
-These is your very first content with Contentful, pulled in JSON format using the [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ "Content Delivery API"). Content and presentation are now decoupled, allowing you to focus your efforts in building the perfect app.
+            <description><![CDATA[Your very first blog post with Contentful, pulled in JSON format using the Content Delivery API to be listed on the home page.]]></description>
+            <content:encoded><![CDATA[These is your very first content with Contentful, pulled in JSON format using the [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ "Content Delivery API"). Content and presentation are now decoupled, allowing you to focus your efforts in building the perfect app.
 
 ## Your first steps
 
@@ -48,7 +42,7 @@ The [Images API](https://www.contentful.com/developers/docs/concepts/apis/#image
             <title><![CDATA[Static sites are great]]></title>
             <link>static-sites-are-great</link>
             <guid>static-sites-are-great</guid>
-            <description><![CDATA[Worry less about security, caching, and talking to the server. Static sites are the new thing.]]></description>
+            <description><![CDATA[Worry less about security, caching, and talking to the server. Static sites are the new thing. Right?]]></description>
             <content:encoded><![CDATA[## The case for the static site generator
 
 More and more developers are jumping on the "go static train", and rightfully so. Static pages are fast, lightweight, they scale well. They are more secure, and simple to maintain and they allow you to focus all your time and effort on the user interface. Often times, this dedication really shows.
