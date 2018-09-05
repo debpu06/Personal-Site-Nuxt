@@ -28,9 +28,8 @@
                 </aside>
             </div>
             <div class="column is-7">
-                <div class="box is-link">
-                <div class="tile is-ancestor">
-                    <div class="tile is-parent is-vertical">
+                <div class="is-link">
+                <div class="tile is-ancestor is-vertical">
                             <div v-for="post in posts" :key="post.sys.id" class="tile is-parent">
                                 <nuxt-link v-bind:to="'blog/'+post.fields.slug+'/'">
                                     <article class="tile is-child box">
@@ -42,7 +41,6 @@
                                     </article>
                                   </nuxt-link>
                             </div>
-                    </div>
                 </div>
                 </div>
             </div>
