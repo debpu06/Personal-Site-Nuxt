@@ -4,9 +4,16 @@
         <title>David Boland</title>
         <link></link>
         <description>Site dedicated to blogging about tech and personal projects</description>
-        <lastBuildDate>Wed, 05 Sep 2018 00:20:35 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 05 Sep 2018 05:14:18 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
+        <item>
+            <title><![CDATA[Definition of Done]]></title>
+            <link>definition-of-done</link>
+            <guid>definition-of-done</guid>
+            <description><![CDATA[When is a task considered done? Development, testing, deployment, and everything in between needs to be completed before we consider a task complete.]]></description>
+            <content:encoded><![CDATA[TBD]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Hello world]]></title>
             <link>hello-world</link>

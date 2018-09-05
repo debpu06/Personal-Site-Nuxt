@@ -14,8 +14,8 @@
             <div class="column is-2">
                 <aside class="menu">
                     <div class="box">
-                        <p class="menu-label">Topics</p>
                         <ul class="menu-list">
+                            <li>Topics</li>
                             <li v-for="tag in tags" :key="tag" >
                               <a>
                                 <span class="tag is-primary">
@@ -28,6 +28,7 @@
                 </aside>
             </div>
             <div class="column is-7">
+                <div class="box is-link">
                 <div class="tile is-ancestor">
                     <div class="tile is-parent is-vertical">
                             <div v-for="post in posts" :key="post.sys.id" class="tile is-parent">
@@ -42,6 +43,7 @@
                                   </nuxt-link>
                             </div>
                     </div>
+                </div>
                 </div>
             </div>
             <div class="column is-3">
