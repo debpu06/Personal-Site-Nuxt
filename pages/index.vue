@@ -18,7 +18,7 @@
                         <ul class="menu-list">
                             <li v-for="tag in tags" :key="tag" >
                               <a>
-                                <span class="tag is-light">
+                                <span class="tag is-primary">
                                   {{tag}}
                                 </span>
                               </a>
@@ -36,7 +36,7 @@
                                         <p class="title">{{post.fields.title}}</p>
                                         <p class="subtitle">{{post.fields.description}}</p>
                                         <div class="tags">
-                                          <span v-for="tag in post.fields.tags" :key="tag" class="tag is-dark">{{tag}}</span>
+                                          <span v-for="tag in post.fields.tags" :key="tag" class="tag is-primary">{{tag}}</span>
                                         </div>
                                     </article>
                                   </nuxt-link>

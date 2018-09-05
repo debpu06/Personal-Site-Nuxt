@@ -58,9 +58,13 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css' },
-      { href: 'https://fonts.googleapis.com/css?family=Open+Sans', rel: 'stylesheet' }
-    ]
+      { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css' },
+      { href: 'https://fonts.googleapis.com/css?family=Open+Sans', rel: 'stylesheet' },
+      { href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel: 'stylesheet' }
+    ],
+    bodyAttrs: {
+      class: ''
+    }
   },
   /*
   ** Customize the progress bar color
