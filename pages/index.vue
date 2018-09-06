@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="column is-3">
-                <profilepanel></profilepanel>
+                <profilepanel  :person="person"></profilepanel>
             </div>
         </div>
     </div>
@@ -63,10 +63,13 @@
     asyncData ({env}) {
       return Promise.all([
         client.getEntries({
+          'sys.id': env.CTF_PERSON_ID
+        }),
+        client.getEntries({
           'content_type': env.CTF_BLOG_POST_TYPE_ID,
           order: '-sys.createdAt'
         })
-      ]).then(([posts]) => {
+      ]).then(([persons,posts]) => {
         // return data that should be available
         // in the template
         var tags = []
@@ -74,6 +77,7 @@
           tags = tags.concat(post.fields.tags)
         });
         return {
+          person: persons.items[0],
           posts: posts.items,
           tags: tags
         }

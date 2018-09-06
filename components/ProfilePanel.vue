@@ -13,8 +13,8 @@
             </figure>
             </div> -->
             <div class="media-content">
-            <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@johnsmith</p>
+            <p class="title is-4">{{person.fields.name}}</p>
+            <!-- <p class="subtitle is-6">@johnsmith</p> -->
             </div>
         </div>
 
@@ -40,3 +40,11 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'ProfilePanel',
+    
+    props: ['person']
+}
+    </script>
