@@ -14,7 +14,7 @@
             </div> -->
             <div class="media-content">
             <p class="title is-4">{{person.fields.name}}</p>
-            <p class="subtitle is-6">@{{person.fields.twitter}}}</p>
+            <p class="subtitle is-6">@{{person.fields.twitter}}</p>
             </div>
         </div>
 
