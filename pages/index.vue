@@ -74,7 +74,11 @@
         // in the template
         var tags = []
         posts.items.forEach(post => {
-          tags = tags.concat(post.fields.tags)
+            post.fields.tags.forEach(tag => {
+                if (tags.indexOf(tag) < 0) {
+                    tags = tags.concat(tag)
+                }
+            });
         });
         return {
           person: persons.items[0],
