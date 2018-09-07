@@ -36,7 +36,10 @@
   const client = createClient()
 
   export default {
-    asyncData ({env}) {
+    asyncData ({env, payload}) {
+        if (payload) return {
+         person: payload
+        };
       return Promise.all([
         client.getEntries({
           'content_type': 'person'
