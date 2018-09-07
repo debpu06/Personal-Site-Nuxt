@@ -62,7 +62,7 @@ html {
 }
 
 .header-image {
-    background-image: url("~/assets/heroTest3_edited.jpg");
+    /* background-image: url("~/assets/heroTest3_edited.jpg"); */
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
