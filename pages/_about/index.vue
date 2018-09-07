@@ -1,55 +1,55 @@
 <template>
-  <section class="hero is-fullheight is-default is-bold">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns">
-                    <div class="column is-3">
-                        <profilepanel></profilepanel>
+<div>
+    <navbar></navbar>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-9">
+                    <div class="card article">
+                      <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title">{{person.fields.name}}</p>
+                                <p class="subtitle">More about me</p>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+                            <vuemarkdown :source="person.fields.longBio"></vuemarkdown>
+                        </div>
                     </div>
-                    <div class="column is-7 is-offset-1">
-                        <h1 class="title is-2"> name
-                        </h1>
-                        <h2 class="subtitle is-4"> subtitle
-                        </h2>
-                        <br>
-                        <p> test
-                        </p>                        
-                    </div>
+                </div>
+                </div>
+                <div class="column is-3">
+                    <profilepanel :person="person"></profilepanel>
                 </div>
             </div>
         </div>
-  </section>
+        </section>
+    </div>
 </template>
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
   import vuemarkdown from 'vue-markdown'
+  import Navbar from '~/components/NavBar'
   import profilepanel from '~/components/ProfilePanel'
   const client = createClient()
 
   export default {
-    // `env` is available in the context object
     asyncData ({env}) {
       return Promise.all([
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt'
+          'sys.id': env.CTF_PERSON_ID
         })
-      ]).then(([posts]) => {
-        // return data that should be available
-        // in the template
-        var tags = []
-        posts.items.forEach(post => {
-          tags = tags.concat(post.fields.tags)
-        });
+      ]).then(([persons]) => {
         return {
-          posts: posts.items,
-          tags: tags
+          person: persons.items[0]
         }
       }).catch(console.error)
     },
     components: {
       vuemarkdown,
+      Navbar,
       profilepanel
     }
   }

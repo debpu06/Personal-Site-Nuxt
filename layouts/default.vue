@@ -1,18 +1,17 @@
 <template>
   <div>
-    <navbar></navbar>
     <nuxt/>
   </div>
 </template>
 
 <script>
-  import Navbar from '~/components/NavBar'
+  //import Navbar from '~/components/NavBar'
 
-  export default {
-    components: {
-      Navbar
-    }
-  }
+  // export default {
+  //   components: {
+      
+  //   }
+  // }
 </script>
  
 
@@ -61,5 +60,15 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+.header-image {
+    background-image: url("~/assets/heroTest3_edited.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #000;
+}
+
 </style>
 

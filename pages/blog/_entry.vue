@@ -1,4 +1,6 @@
 <template>
+<div>
+    <Navbar></Navbar>
   <div class="container">
         <!-- START ARTICLE FEED -->
         <section class="articles">
@@ -25,11 +27,14 @@
             </div>
         </section>
   </div>
+</div>
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
 import vuemarkdown from 'vue-markdown'
+import Navbar from '~/components/NavBar'
+
 const client = createClient()
 export default {
   asyncData({ params, error, payload }) {
@@ -62,7 +67,8 @@ export default {
     }
   },
   components: {
-    vuemarkdown
+    vuemarkdown,
+    Navbar
   }
 }
 </script>
