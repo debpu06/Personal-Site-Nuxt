@@ -39,7 +39,7 @@
     asyncData ({env}) {
       return Promise.all([
         client.getEntries({
-          'sys.id': env.CTF_PERSON_ID
+          'content_type': 'person'
         })
       ]).then(([persons]) => {
         return {
