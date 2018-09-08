@@ -18,8 +18,8 @@
                         <div class="box">
                             <ul class="menu-list">
                                 <li>Topics</li>
-                                <li v-for="tag in tags" :key="tag" >
-                                <a>
+                                <li v-for="tag in tags" :key="tag">
+                                <a v-on:click="filterPosts(tag)">
                                     <span class="tag is-primary">
                                     {{tag}}
                                     </span>
@@ -32,8 +32,8 @@
                 <div class="column is-7">
                     <div class="is-link">
                     <div class="tile is-ancestor is-vertical">
-                                <div v-for="post in posts" :key="post.sys.id" class="tile is-parent">
-                                    <nuxt-link v-bind:to="'blog/'+post.fields.slug+'/'">
+                                <div v-for="post in posts" :key="post.sys.id" class="tile is-parent" :id=post.fields.tags>
+                                    <nuxt-link v-bind:to="'blog/'+post.fields.slug+'/'" >
                                         <article class="tile is-child box">
                                             <p class="title">{{post.fields.title}}</p>
                                             <p class="subtitle">{{post.fields.description}}</p>
@@ -91,6 +91,19 @@
           tags: tags
         }
       }).catch(console.error)
+    },
+    methods: {
+        filterPosts: function(selectedTag){
+            var blogPosts = document.querySelectorAll('.tile.is-parent');
+            [].forEach.call(blogPosts, function(blogPost) {
+                blogPost.style.display='flex'
+                console.log("SHOW", blogPost.id)
+                if(blogPost.id.indexOf(selectedTag) < 0){
+                    console.log("Hide", blogPost.id)
+                    blogPost.style.display='none'
+                }
+            });
+        }
     },
     components: {
       vuemarkdown,
