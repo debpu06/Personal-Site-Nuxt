@@ -13,7 +13,7 @@
                 </div>
             </form> -->
             <div class="columns">
-                <div class="column is-2">
+                <div class="column is-2 is-hidden-mobile">
                     <aside class="menu">
                         <div class="box">
                             <ul class="menu-list">
