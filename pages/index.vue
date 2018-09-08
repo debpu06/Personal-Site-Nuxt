@@ -18,12 +18,19 @@
                         <div class="box">
                             <ul class="menu-list">
                                 <li>Topics</li>
+                                <li>
+                                    <a v-on:click="filterPosts('all')">
+                                        <span class="tag">
+                                        all
+                                        </span>
+                                    </a>
+                                </li>
                                 <li v-for="tag in tags" :key="tag">
-                                <a v-on:click="filterPosts(tag)">
-                                    <span class="tag is-primary">
-                                    {{tag}}
-                                    </span>
-                                </a>
+                                    <a v-on:click="filterPosts(tag)">
+                                        <span class="tag is-primary">
+                                        {{tag}}
+                                        </span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -97,11 +104,17 @@
             var blogPosts = document.querySelectorAll('.tile.is-parent');
             [].forEach.call(blogPosts, function(blogPost) {
                 blogPost.style.display='flex'
-                console.log("SHOW", blogPost.id)
-                if(blogPost.id.indexOf(selectedTag) < 0){
-                    console.log("Hide", blogPost.id)
+                if(blogPost.id.indexOf(selectedTag) < 0 && selectedTag !== 'all'){
                     blogPost.style.display='none'
                 }
+            });
+
+            var menuTags = document.querySelectorAll('.menu-list > li > a > .tag');
+            [].forEach.call(menuTags, function(menuTag) {
+               menuTag.classList.add('is-primary')
+               if(menuTag.innerHTML.indexOf(selectedTag) > -1){
+                    menuTag.classList.remove('is-primary')
+               }
             });
         }
     },
