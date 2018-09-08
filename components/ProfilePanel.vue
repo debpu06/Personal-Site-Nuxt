@@ -21,7 +21,7 @@
         <div class="content">
             <vuemarkdown>{{person.fields.shortBio}}</vuemarkdown> 
             <br><br>
-            <nav class="level">
+            <nav class="level is-mobile">
                 <div class="level-item has-text-centered">
                     <a :href="'https://twitter.com/'+person.fields.twitter"><img src="~/assets/twitter-32px.png"></a>
                 </div>
