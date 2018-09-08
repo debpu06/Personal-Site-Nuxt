@@ -4,11 +4,6 @@
     <nav class="navbar is-link" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">Home</a>
-        <div class="navbar-burger burger" data-target="navbarMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
       <div class="navbar-menu" id="navbarMenu">
         <div class="navbar-end">
