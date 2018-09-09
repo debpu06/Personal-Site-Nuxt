@@ -2,7 +2,7 @@
 <div>
     <navbar></navbar>
     <section class="section">
-        <div class="container">
+        <div class="container" role="main">
             <!-- <form action="/searchBlog/" method="post">
                 <div class="field">
                     <div class="columns">

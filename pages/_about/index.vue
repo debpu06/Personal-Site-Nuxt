@@ -1,7 +1,7 @@
 <template>
 <div>
     <navbar></navbar>
-    <section class="section">
+    <section class="section" role="main">
         <div class="container">
             <div class="columns">
                 <div class="column is-9">

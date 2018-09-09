@@ -3,7 +3,7 @@
     <Navbar></Navbar>
   <div class="container">
         <!-- START ARTICLE FEED -->
-        <section class="articles">
+        <section class="articles" role="main">
             <div class="column is-8 is-offset-2">
                 <!-- START ARTICLE -->
                 <div class="card article">
