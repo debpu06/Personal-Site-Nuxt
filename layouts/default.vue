@@ -70,5 +70,12 @@ html {
     background-color: #000;
 }
 
+.embeddedImage {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px
+}
+
 </style>
 
