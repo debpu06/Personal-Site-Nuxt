@@ -42,12 +42,13 @@ export default {
       blogPost: payload
     };
 
-    return Promise.all([
-      client.getEntries({
+    //return Promise.all([
+    return client.getEntries({
         'fields.slug': params.entry,
         'content_type': 'blogPost'
       })
-    ]).then(([entries, posts]) => {
+    //])
+    .then(entries => {
         if (entries.total == 1) return {
             blogPost: entries.items[0]
         }
