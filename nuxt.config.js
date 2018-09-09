@@ -109,7 +109,12 @@ module.exports = {
       .then(([entries, persons]) => {
         return [
           // map entries to URLs
-          [...entries.items.map(entry => {return {route: `/blog/${entry.fields.slug}/`, payload: entry }})],
+          [...entries.items.map(entry => {
+            return {
+              route: `/blog/${entry.fields.slug}/`, 
+              payload: entry 
+            }
+          })],
           // map all possible tags to URLs
           ...persons.items.map(prsn => {return {route: `/about/`, payload: prsn}})
         ]
