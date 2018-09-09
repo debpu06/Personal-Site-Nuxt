@@ -9,11 +9,11 @@
                       <div class="card-content">
                         <div class="media">
                             <div class="media-content has-text-centered">
-                                <p class="title article-title">{{person.fields.name}}</p>
-                                <p class="subtitle">More about me</p>
+                                <p class="title article-title">About Me</p>
+                                <p class="subtitle"></p>
                             </div>
                         </div>
-                        <div class="content article-body">
+                        <div class="content article-body" >
                             <vuemarkdown :source="person.fields.longBio"></vuemarkdown>
                         </div>
                     </div>
