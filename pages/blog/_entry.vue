@@ -48,7 +48,7 @@ export default {
         'content_type': 'blogPost'
       })
     ])
-    .then(entries => {
+    .then(([entries]) => {
         if (entries.total == 1) return {
             blogPost: entries.items[0]
         }
