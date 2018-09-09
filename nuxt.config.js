@@ -18,6 +18,7 @@ module.exports = {
       let siteUrl = process.env.SITE_BASE_URL || config.SITE_BASE_URL
       feed.options = {
         title: 'David Boland',
+        link: siteUrl,
         description: 'Site dedicated to blogging about tech and personal projects',
       }
       
