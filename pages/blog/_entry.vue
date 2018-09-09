@@ -49,7 +49,7 @@ export default {
       })
     ])
     .then(([entries]) => {
-        if (entries.total == 1) return {
+        return {
             blogPost: entries.items[0]
         }
     }).catch(console.error)
