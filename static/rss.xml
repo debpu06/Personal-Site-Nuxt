@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>David Boland</title>
-        <link></link>
+        <link>https://davidboland.site</link>
         <description>Site dedicated to blogging about tech and personal projects</description>
-        <lastBuildDate>Thu, 06 Sep 2018 22:31:28 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Sep 2018 07:48:33 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <item>
             <title><![CDATA[Hello world]]></title>
-            <link>hello-world</link>
-            <guid>hello-world</guid>
+            <link>https://davidboland.site/blog/hello-world</link>
+            <guid>https://davidboland.site/blog/hello-world</guid>
             <description><![CDATA[Your very first blog post with Contentful, pulled in JSON format using the Content Delivery API to be listed on the home page.]]></description>
             <content:encoded><![CDATA[These is your very first content with Contentful, pulled in JSON format using the [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ "Content Delivery API"). Content and presentation are now decoupled, allowing you to focus your efforts in building the perfect app.
 
@@ -40,8 +40,8 @@ The [Images API](https://www.contentful.com/developers/docs/concepts/apis/#image
         </item>
         <item>
             <title><![CDATA[Static sites are great]]></title>
-            <link>static-sites-are-great</link>
-            <guid>static-sites-are-great</guid>
+            <link>https://davidboland.site/blog/static-sites-are-great</link>
+            <guid>https://davidboland.site/blog/static-sites-are-great</guid>
             <description><![CDATA[Worry less about security, caching, and talking to the server. Static sites are the new thing. Right?]]></description>
             <content:encoded><![CDATA[## The case for the static site generator
 
