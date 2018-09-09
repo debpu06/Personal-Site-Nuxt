@@ -9,16 +9,18 @@ module.exports = {
   modules: [
     '@nuxtjs/feed',
   ],
+
   feed: [{
     path: '/rss.xml',
     async create(feed) {
+      let space = process.env.CTF_SPACE_ID || config.CTF_SPACE_ID
+      let accessToken = process.env.CTF_CDA_ACCESS_TOKEN || config.CTF_CDA_ACCESS_TOKEN
+      let siteUrl = process.env.SITE_BASE_URL || config.SITE_BASE_URL
       feed.options = {
         title: 'David Boland',
         description: 'Site dedicated to blogging about tech and personal projects',
       }
-
-      let space = process.env.CTF_SPACE_ID || config.CTF_SPACE_ID
-      let accessToken = process.env.CTF_CDA_ACCESS_TOKEN || config.CTF_CDA_ACCESS_TOKEN
+      
       client = contentful.createClient({ space: space, accessToken: accessToken })
 
       await client.getEntries({
@@ -30,7 +32,7 @@ module.exports = {
             title: post.fields.title,
             description: post.fields.description,
             id: post.sys.id,
-            link: post.fields.slug,
+            link: siteUrl + '/blog/' + post.fields.slug,
             content: post.fields.body
           })
 
