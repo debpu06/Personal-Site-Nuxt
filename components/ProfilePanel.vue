@@ -23,16 +23,16 @@
             <br><br>
             <nav class="level is-mobile">
                 <div class="level-item has-text-centered">
-                    <a :href="'https://twitter.com/'+person.fields.twitter"><img src="~/assets/twitter-32px.png"></a>
+                    <a :href="'https://twitter.com/'+person.fields.twitter"><img src="~/assets/twitter-32px.png" alt="Twitter profile icon"></a>
                 </div>
                 <div class="level-item has-text-centered">
-                    <a :href="'https://github.com/'+person.fields.github"><img src="~/assets/GitHub-Mark-32px.png"></a>
+                    <a :href="'https://github.com/'+person.fields.github"><img src="~/assets/GitHub-Mark-32px.png" alt="Github profile icon"></a>
                 </div>
                 <div class="level-item has-text-centered">
-                    <a :href="'https://linkedin.com/in/'+person.fields.linkedin"><img src="~/assets/linkedin-32px.png"></a>
+                    <a :href="'https://linkedin.com/in/'+person.fields.linkedin"><img src="~/assets/linkedin-32px.png" alt="Linkedin profile icon"></a>
                 </div>
                 <div class="level-item has-text-centered">
-                    <a :href="'mailto:'+person.fields.email"><img src="~/assets/mail-32px.png"></a>
+                    <a :href="'mailto:'+person.fields.email"><img src="~/assets/mail-32px.png" alt="Email mail to icon"></a>
                 </div>
             </nav>
         </div>
