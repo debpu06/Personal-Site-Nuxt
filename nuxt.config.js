@@ -102,26 +102,17 @@ module.exports = {
   },
 
   generate: {
-    routes () {
-      return Promise.all([
-        // get all blog posts
-        client.getEntries({ content_type: 'blogPost' }),
-        // get the blog post content type
-        client.getEntries({ content_type: 'person' })
-      ])
-      .then(([entries, persons]) => {
-        return [
-          // map entries to URLs
-          [...entries.items.map(entry => {
+    routes: function() {
+      // get all blog posts
+      return client.getEntries({ content_type: 'blogPost' })
+        .then((entries) => {
+          return entries.items.map((entry) => {
             return {
-              route: `/blog/${entry.fields.slug}/`, 
-              payload: entry 
+              route: `/blog/${entry.fields.slug}/`,
+              payload: entry
             }
-          })],
-          // map all possible tags to URLs
-          ...persons.items.map(prsn => {return {route: `/about/`, payload: prsn}})
-        ]
-      })
+          })
+        })
     }
   }
 }
