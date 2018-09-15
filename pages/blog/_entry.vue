@@ -1,18 +1,30 @@
 <template>
 <div>
     <Navbar></Navbar>
-  <div class="container">
+    <section class="hero is-medium is-primary is-bold">
+        <div class="hero-body has-text-centered" :style=backgroundStyle>
+            <div class="container">
+            <h1 class="title">
+                {{ blogPost.fields.title }}
+            </h1>
+            <h2 class="subtitle">
+                {{ (new Date(blogPost.fields.publishDate).toLocaleDateString('en-US')) }}
+            </h2>
+            </div>
+        </div>
+    </section>
+    <div class="container">
         <!-- START ARTICLE FEED -->
         <section class="articles" role="main">
-            <div class="column is-8 is-offset-2">
+            <div class="column is-10 is-offset-1">
                 <!-- START ARTICLE -->
-                <div class="card article">
-                    <div class="card-content">
+                <div class="article">
+                    <!-- <div class="card-content"> -->
                         <div class="media">
                             <div class="media-content has-text-centered">
-                                <p class="title article-title"> {{ blogPost.fields.title }}</p>
+                                <p class="title article-title"> </p>
                                 <div class="tags has-addons level-item">
-                                    <span classs="tag is-link"> {{ (new Date(blogPost.fields.publishDate).toLocaleDateString('en-US')) }} </span>
+                                    <span classs="tag is-link">  </span>
                                 </div>
                                 <div class="media-content has-text-right">
                                   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -22,7 +34,7 @@
                         <div class="content article-body">
                             <vuemarkdown :source="blogPost.fields.body"></vuemarkdown>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </section>
@@ -39,7 +51,8 @@ const client = createClient()
 export default {
   asyncData({ params, error, payload }) {
     if (payload) return {
-      blogPost: payload
+      blogPost: payload,
+      backgroundStyle: ''
     };
     
     return Promise.all([
@@ -49,7 +62,8 @@ export default {
       })
     ]).then(([entries]) => {
         if (entries.total == 1) return {
-            blogPost: entries.items[0]
+            blogPost: entries.items[0],
+            backgroundStyle: "background-image: url("+ entries.items[0].fields.heroImage.fields.file.url+");"
         }
     }).catch(console.error)
   },
@@ -72,3 +86,4 @@ export default {
   }
 }
 </script>
+

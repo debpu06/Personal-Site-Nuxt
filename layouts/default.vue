@@ -25,6 +25,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background-color: #f7f7f7;
 }
 
 *, *:before, *:after {
@@ -72,10 +73,16 @@ html {
 
 .embeddedImage {
   float: left;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-top: 10px
+  margin-right: 18px;
+  margin-bottom: 14px;
+  margin-top: 14px
 }
 
+.profileImage{
+  border-radius: 50%;
+  height: 160px;
+  width: 160px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 </style>
 
