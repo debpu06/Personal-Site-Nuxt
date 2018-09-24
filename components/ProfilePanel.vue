@@ -1,13 +1,13 @@
 <template>
-        <div class="tile is-child box">
+        <div class="tile is-child box is-hidden-tablet-only">
             <div class="card-image">
-            <figure class="image is-3by4">
+            <figure>
                 <img :src="person.fields.image.fields.file.url" alt="Profile image" class="profileImage">
             </figure>
             </div>
             <div class="card-content">
             <div class="media">
-                <div class="media-content">
+                <div class="media-content has-text-centered">
                 <p class="title is-4">{{person.fields.name}}</p>
                 <p class="subtitle is-6">@{{person.fields.twitter}}</p>
                 </div>
