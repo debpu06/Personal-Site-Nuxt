@@ -2,12 +2,12 @@
 <div>
     <Navbar></Navbar>
     <section class="hero is-medium is-primary is-bold">
-        <div class="hero-body has-text-centered" :style=backgroundStyle>
+        <div class="hero-body has-text-centered" >
             <div class="container">
-            <h1 class="title">
+            <h1 class="title blogHeading">
                 {{ blogPost.fields.title }}
             </h1>
-            <h2 class="subtitle">
+            <h2 class="subtitle blogHeading">
                 {{ (new Date(blogPost.fields.publishDate).toLocaleDateString('en-US')) }}
             </h2>
             </div>
@@ -51,8 +51,7 @@ const client = createClient()
 export default {
   asyncData({ params, error, payload }) {
     if (payload) return {
-      blogPost: payload,
-      backgroundStyle: ''
+      blogPost: payload
     };
     
     return Promise.all([
@@ -62,8 +61,7 @@ export default {
       })
     ]).then(([entries]) => {
         if (entries.total == 1) return {
-            blogPost: entries.items[0],
-            backgroundStyle: "background-image: url("+ entries.items[0].fields.heroImage.fields.file.url+");"
+            blogPost: entries.items[0]
         }
     }).catch(console.error)
   },
