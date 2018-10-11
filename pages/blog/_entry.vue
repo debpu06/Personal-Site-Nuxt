@@ -13,32 +13,34 @@
             </div>
         </div>
     </section>
-    <div class="container">
-        <!-- START ARTICLE FEED -->
-        <section class="articles" role="main">
-            <div class="column is-10 is-offset-1">
-                <!-- START ARTICLE -->
-                <div class="article">
-                    <!-- <div class="card-content"> -->
-                        <div class="media">
-                            <div class="media-content has-text-centered">
-                                <p class="title article-title"> </p>
-                                <div class="tags has-addons level-item">
-                                    <span classs="tag is-link">  </span>
-                                </div>
-                                <div class="media-content has-text-right">
-                                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div style="background-color:#FFF">
+        <div class="container">
+            <!-- START ARTICLE FEED -->
+            <section class="articles" role="main">
+                <div class="column is-10 is-offset-1">
+                    <!-- START ARTICLE -->
+                    <div class="article">
+                        <!-- <div class="card-content"> -->
+                            <div class="media">
+                                <div class="media-content has-text-centered">
+                                    <p class="title article-title"> </p>
+                                    <div class="tags has-addons level-item">
+                                        <span classs="tag is-link">  </span>
+                                    </div>
+                                    <div class="media-content has-text-right">
+                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="content article-body">
-                            <vuemarkdown :source="blogPost.fields.body"></vuemarkdown>
-                        </div>
-                    <!-- </div> -->
+                            <div class="content article-body">
+                                <vuemarkdown :source="blogPost.fields.body"></vuemarkdown>
+                            </div>
+                        <!-- </div> -->
+                    </div>
                 </div>
-            </div>
-        </section>
-  </div>
+            </section>
+        </div>
+    </div>
 </div>
 </template>
 
