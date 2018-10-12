@@ -8,11 +8,29 @@ try {
 module.exports = {
   modules: [
     '@nuxtjs/feed',
+ //   '@nuxtjs/sitemap',
     ['@nuxtjs/google-analytics', { ua: process.env.ANALYTICS_ID }]
   ],
-  // plugins: [
-  //   { src: '~plugins/ga.js', ssr: false }
-  // ],
+  // sitemap: {
+  //   path: '/sitemap.xml',
+  //   hostname: 'https://example.com',
+  //   cacheTime: 1000 * 60 * 15,
+  //   gzip: true,
+  //   generate: false, // Enable me when using nuxt generate
+  //   exclude: [
+  //     '/secret',
+  //     '/admin/**'
+  //   ],
+  //   routes: [
+  //     '/page/1',
+  //     {
+  //       url: '/page/2',
+  //       changefreq: 'daily',
+  //       priority: 1,
+  //       lastmodISO: '2017-06-30T13:30:00.000Z'
+  //     }
+  //   ]
+  // },
   feed: [{
     path: '/rss.xml',
     async create(feed) {
@@ -66,7 +84,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Site dedicated to blogging about tech and personal projects' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon-32x32.png', sizes='32x32' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon-16x16.png', sizes='16x16' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css' },
       { href: 'https://fonts.googleapis.com/css?family=Open+Sans', rel: 'stylesheet' },
       { href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel: 'stylesheet' }
