@@ -84,8 +84,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Site dedicated to blogging about tech and personal projects' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon-32x32.png', sizes='32x32' },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon-16x16.png', sizes='16x16' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon-16x16.png' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css' },
       { href: 'https://fonts.googleapis.com/css?family=Open+Sans', rel: 'stylesheet' },
       { href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel: 'stylesheet' }
