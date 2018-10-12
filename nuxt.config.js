@@ -9,7 +9,9 @@ module.exports = {
   modules: [
     '@nuxtjs/feed',
   ],
-
+  plugins: [
+    { src: '~plugins/ga.js', ssr: false }
+  ],
   feed: [{
     path: '/rss.xml',
     async create(feed) {

@@ -4,11 +4,11 @@
         <title>David Boland</title>
         <link>https://davidboland.site</link>
         <description>Site dedicated to blogging about tech and personal projects</description>
-        <lastBuildDate>Thu, 11 Oct 2018 22:40:32 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 12 Oct 2018 02:47:51 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <item>
-            <title><![CDATA[Episerver Editor Documentation View]]></title>
+            <title><![CDATA[Creating An Episerver Editor Documentation View]]></title>
             <link>https://davidboland.site/blog/episerver-editor-documentation-view</link>
             <guid>https://davidboland.site/blog/episerver-editor-documentation-view</guid>
             <description><![CDATA[In this post, I will be describing how to add a custom editor view in Episerver that will be used to render documentation. Our example will be pulling the documentation from Github but I will discuss how the implementation can be extended to pull documentation from other sources.]]></description>
@@ -65,7 +65,7 @@ as well as the listed settings to your appSettings. 'GithubDocumentationFolder' 
   <add key="GithubApiUrl" value="https://api.github.com" />
 ```
 
-Lastly, all you need is to implement the [__Documentation.Plugin.Interfaces.IDocumented__](https://github.com/debpu06/Alloy-Demo-Project/blob/feature-editor-documentation-view/Documentation.Plugin/Interfaces/IDocumented.cs) interface on your page types. In my example, I added it to the StartPage. It falls back to "StartPage.md" but can be set on a per instance basis.
+Lastly, all you need is to implement the [__Documentation.Plugin.Interfaces.IDocumented__](https://github.com/debpu06/Alloy-Demo-Project/blob/feature-editor-documentation-view/Documentation.Plugin/Interfaces/IDocumented.cs) interface on your page types. In my example, I added it to the StartPage. It falls back to StartPage.md but can be set on a per instance basis.
 ``` csharp
 [ContentType(
         GUID = "19671657-B684-4D95-A61F-8DD4FE60D559",
@@ -90,7 +90,7 @@ You can then populate the property in episerver with the name of the markdown do
 
 ## Implementation Details
 #### Custom Episerver ViewConfiguration
-The first step is to create a subclass of ViewConfiguration and register it as a service with Episerver. I created a subclass called EditorViewConfiguration. In the constructor, you can see I assigned some values to the inherited ViewConfiguration properties. Most of these are self explainatory but keep note of the 'ViewType' property. That is name of the view that will be rendering the documentation view.
+The first step is to create a subclass of ViewConfiguration and register it as a service with Episerver. I created a subclass called EditorViewConfiguration. In the constructor, you can see I assigned some values to the inherited ViewConfiguration properties. Most of these are self explanatory but keep note of the 'ViewType' property. That is the name of the view that will be rendering the documentation view.
 
 ``` csharp
 namespace Documentation.Plugin.Infrastructure
@@ -352,64 +352,10 @@ For devs, viewing rendered markdown is pretty common. During initial implementat
 #### Custom Documentation Source
 If you want to customize the solution to work for a different documentation source, you can do so by creating your own implementation of __IDocumentationRepository__ and  __IConfigurationOptions__, then register those instead of calling __InitializeDocumentationPlugin__. I will be following up with an implementation using Confluence as a documentation source.
 
-If you have any recommentations, feel free to create a [pull request](https://github.com/debpu06/Alloy-Demo-Project) or send me a message on [twitter](https://twitter.com/debpu06)]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Hello world]]></title>
-            <link>https://davidboland.site/blog/hello-world</link>
-            <guid>https://davidboland.site/blog/hello-world</guid>
-            <description><![CDATA[Your very first blog post with Contentful, pulled in JSON format using the Content Delivery API to be listed on the home page.]]></description>
-            <content:encoded><![CDATA[These is your very first content with Contentful, pulled in JSON format using the [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ "Content Delivery API"). Content and presentation are now decoupled, allowing you to focus your efforts in building the perfect app.
+If you have any recommentations, feel free to create a [pull request](https://github.com/debpu06/Alloy-Demo-Project) or send me a message on [twitter](https://twitter.com/debpu06)
 
-## Your first steps
 
-Building with Contentful is easy. First take a moment to get [the basics of content modelling](https://www.contentful.com/r/knowledgebase/content-modelling-basics/ "the basics of content modelling"), which you can set up in the [Contentful Web app](https://app.contentful.com/ "Contentful Web app"). Once you get that, feel free to drop by the [Documentation](https://www.contentful.com/developers/docs/ "Documentation") to learn a bit more about how to build your app with Contentful, in particular the [API basics](https://www.contentful.com/developers/docs/concepts/apis/ "API basics") and each one of our four APIs, as shown below.
-
-### Content Delivery API
-
-The [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/ "Content Delivery API") (CDA), available at `cdn.contentful.com`, is a read-only API for delivering content from Contentful to apps, websites and other media. Content is delivered as JSON data, and images, videos and other media as files.
-The API is available via a globally distributed content delivery network. The server closest to the user serves all content, both JSON and binary. This minimizes latency, which especially benefits mobile apps. Hosting content in multiple global data centers also greatly improves the availability of content.
-
-### Content Management API
-
-The [Content Management API](https://www.contentful.com/developers/docs/references/content-management-api/ "Content Management API") (CMA), available at `api.contentful.com`, is a read-write API for managing content. Unlike the Content Delivery API, the management API requires you to authenticate as a Contentful user. You could use the CMA for several use cases, such as:
-* Automatic imports from different CMSes like WordPress or Drupal.
-* Integration with other backend systems, such as an e-commerce shop.
-* Building custom editing experiences. We built the [Contentful Web app](https://app.contentful.com/ "Contentful Web app") on top of this API.
-
-### Preview API
-
-The [Content Preview API](https://www.contentful.com/developers/docs/concepts/apis/#content-preview-api "Content Preview API"), available at `preview.contentful.com`, is a variant of the CDA for previewing your content before delivering it to your customers. You use the Content Preview API in combination with a "preview" deployment of your website (or a "preview" build of your mobile app) that allows content managers and authors to view their work in-context, as if it were published, using a "preview" access token as though it were delivered by the CDA.
-
-### Images API
-
-The [Images API](https://www.contentful.com/developers/docs/concepts/apis/#images-api "Images API"), available at `images.contentful.com`, allows you to resize and crop images, change their background color and convert them to different formats. Using our API for these transformations lets you upload high-quality assets, deliver exactly what your app needs, and still get all the benefits of our caching CDN.]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Static sites are great]]></title>
-            <link>https://davidboland.site/blog/static-sites-are-great</link>
-            <guid>https://davidboland.site/blog/static-sites-are-great</guid>
-            <description><![CDATA[Worry less about security, caching, and talking to the server. Static sites are the new thing. Right?]]></description>
-            <content:encoded><![CDATA[## The case for the static site generator
-
-More and more developers are jumping on the "go static train", and rightfully so. Static pages are fast, lightweight, they scale well. They are more secure, and simple to maintain and they allow you to focus all your time and effort on the user interface. Often times, this dedication really shows.
-
-It just so happens that static site generators are mostly loved by developers, but not by the average Joe. They do not offer WYSIWYG, previewing on demo sites may take an update cycle, they are often based on markdown text files, and they require some knowledge of modern day repositories.
-
-Moreover, when teams are collaborating, it can get complicated quickly. Has this article already been proof-read or reviewed? Is this input valid? Are user permissions available, e.g. for administering adding and removing team members? Can this article be published at a future date? How can a large repository of content be categorized, organized, and searched? All these requirements have previously been more or less solved within the admin area of your CMS. But of course with all the baggage that made you leave the appserver-app-database-in-one-big-blob stack in the first place.
-
-## Content APIs to the rescue
-
-An alternative is decoupling the content management aspect from the system. And then replacing the maintenance prone server with a cloud based web service offering. Effectively, instead of your CMS of old, you move to a [Content Management as a Service (CMaaS)](https://www.contentful.com/r/knowledgebase/content-as-a-service/ "Content Management as a Service (CMaaS)") world, with a content API to deliver all your content. That way, you get the all the [benefits of content management features](http://www.digett.com/blog/01/16/2014/pairing-static-websites-cms "benefits of content management features") while still being able to embrace the static site generator mantra.
-
-It so happens that Contentful is offering just that kind of content API. A service that
-
-* from the ground up has been designed to be fast, scalable, secure, and offer high uptime, so that you don’t have to worry about maintenance ever again.
-* offers a powerful editor and lots of flexibility in creating templates for your documents that your editors can reuse and combine, so that no developers resources are required in everyday writing and updating tasks.
-* separates content from presentation, so you can reuse your content repository for any device platform your heart desires. That way, you can COPE ("create once, publish everywhere").
-* offers webhooks that you can use to rebuild your static site in a fully automated fashion every time your content is modified.
-
-Extracted from the article [CMS-functionality for static site generators](https://www.contentful.com/r/knowledgebase/contentful-api-cms-static-site-generators/ "CMS-functionality for static site generators"). Read more about the [static site generators supported by Contentful](https://www.contentful.com/developers/docs/tools/staticsitegenerators/ "static site generators supported by Contentful").]]></content:encoded>
+]]></content:encoded>
         </item>
     </channel>
 </rss>
