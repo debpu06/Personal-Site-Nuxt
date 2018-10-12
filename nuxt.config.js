@@ -8,6 +8,7 @@ try {
 module.exports = {
   modules: [
     '@nuxtjs/feed',
+    '@nuxtjs/google-analytics', { ua: process.env.ANALYTICS_ID }
   ],
   plugins: [
     { src: '~plugins/ga.js', ssr: false }
