@@ -10,9 +10,9 @@ module.exports = {
     '@nuxtjs/feed',
     ['@nuxtjs/google-analytics', { ua: process.env.ANALYTICS_ID }]
   ],
-  plugins: [
-    { src: '~plugins/ga.js', ssr: false }
-  ],
+  // plugins: [
+  //   { src: '~plugins/ga.js', ssr: false }
+  // ],
   feed: [{
     path: '/rss.xml',
     async create(feed) {
