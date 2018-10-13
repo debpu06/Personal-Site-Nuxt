@@ -48,6 +48,9 @@
 import {createClient} from '~/plugins/contentful.js'
 import vuemarkdown from 'vue-markdown'
 import Navbar from '~/components/NavBar'
+import Prism from'prismjs'
+import "prismjs/components/prism-csharp"
+
 
 const client = createClient()
 export default {
@@ -80,9 +83,13 @@ export default {
         ]
     }
   },
+  mounted() {
+    Prism.highlightAll();
+  },
   components: {
     vuemarkdown,
-    Navbar
+    Navbar,
+    Prism
   }
 }
 </script>
