@@ -4,7 +4,7 @@
         <title>David Boland</title>
         <link>https://davidboland.site</link>
         <description>Site dedicated to blogging about tech and personal projects</description>
-        <lastBuildDate>Sat, 13 Oct 2018 22:53:34 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Oct 2018 04:02:58 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <item>
@@ -67,7 +67,7 @@ as well as the listed settings to your appSettings. 'GithubDocumentationFolder' 
 
 Lastly, all you need is to implement the [__Documentation.Plugin.Interfaces.IDocumented__](https://github.com/debpu06/Alloy-Demo-Project/blob/feature-editor-documentation-view/Documentation.Plugin/Interfaces/IDocumented.cs) interface on your page types. In my example, I added it to the StartPage. It falls back to StartPage.md but can be set on a per instance basis.
 ``` csharp
-[ContentType(
+    [ContentType(
         GUID = "19671657-B684-4D95-A61F-8DD4FE60D559",
         GroupName = Global.GroupNames.Specialized)]
     [SiteImageUrl]
@@ -88,7 +88,11 @@ You can then populate the property in episerver with the name of the markdown do
 
 ![property in epi](//images.ctfassets.net/9usgdrjsks5w/4YHn5XCSVasswAe2aCWky0/3d80af5262b80b9a298fb7416eace5f2/property_in_epi.png)
 
+And that is all you need to get the Editor Documentation View working on your Episerver site.
+
 ## Implementation Details
+If you want to implement it yourself or tweak existing features, I will go through how I implemented the documentation view in more detail.
+
 #### Custom Episerver ViewConfiguration
 The first step is to create a subclass of ViewConfiguration and register it as a service with Episerver. I created a subclass called EditorViewConfiguration. In the constructor, you can see I assigned some values to the inherited ViewConfiguration properties. Most of these are self explanatory but keep note of the 'ViewType' property. That is the name of the view that will be rendering the documentation view.
 

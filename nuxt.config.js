@@ -8,30 +8,31 @@ try {
 module.exports = {
   modules: [
     '@nuxtjs/feed',
- //   '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap',
     ['@nuxtjs/google-analytics', { ua: process.env.ANALYTICS_ID }]
   ],
-  // sitemap: {
-  //   path: '/sitemap.xml',
-  //   hostname: 'https://example.com',
-  //   cacheTime: 1000 * 60 * 15,
-  //   gzip: true,
-  //   generate: false, // Enable me when using nuxt generate
-  //   exclude: [
-  //     '/secret',
-  //     '/admin/**'
-  //   ],
-  //   routes: [
-  //     '/page/1',
-  //     {
-  //       url: '/page/2',
-  //       changefreq: 'daily',
-  //       priority: 1,
-  //       lastmodISO: '2017-06-30T13:30:00.000Z'
-  //     }
-  //   ]
-  // },
-  feed: [{
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: process.env.SITE_BASE_URL || config.SITE_BASE_URL,
+    cacheTime: 1000 * 60 * 15,
+    gzip: false,
+    generate: true,
+    // exclude: [
+    //   '/secret',
+    //   '/admin/**'
+    // ],
+    routes() {
+      let space = process.env.CTF_SPACE_ID || config.CTF_SPACE_ID
+      let accessToken = process.env.CTF_CDA_ACCESS_TOKEN || config.CTF_CDA_ACCESS_TOKEN
+      client = contentful.createClient({ space: space, accessToken: accessToken })
+      return client.getEntries({
+        'content_type': 'blogPost',
+        order: '-sys.createdAt'
+      }).then(posts => posts.items.map(post => '/blog/' + post.fields.slug))
+
+    }
+  },
+    feed: [{
     path: '/rss.xml',
     async create(feed) {
       let space = process.env.CTF_SPACE_ID || config.CTF_SPACE_ID
