@@ -8,12 +8,14 @@
             <div class="card-content">
             <div class="media">
                 <div class="media-content has-text-centered">
-                <p class="title is-4">{{person.fields.name}}</p>
-                <p class="subtitle is-6">@{{person.fields.twitter}}</p>
+                    <p class="title is-4">{{person.fields.name}}</p>
+                    <div class="has-text-left">
+                        <p class="subtitle is-6">@{{person.fields.twitter}}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="content">
+            <div class="content" style="margin:0.375em">
                 <vuemarkdown>{{person.fields.shortBio}}</vuemarkdown> 
                 <br><br>
                 <nav class="level is-mobile">

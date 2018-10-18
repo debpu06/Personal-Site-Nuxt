@@ -43,7 +43,7 @@
                                     <nuxt-link v-bind:to="'blog/'+post.fields.slug+'/'" >
                                         <article class="tile is-child box">
                                             <p class="title">{{post.fields.title}}</p>
-                                            <p class="subtitle" style="font-size: 1em;">{{post.fields.description}}</p>
+                                            <p class="subtitle" style="font-size: 1em;margin-top:-0.5em">{{post.fields.description}}</p>
                                             <div class="tags">
                                             <span v-for="tag in post.fields.tags" :key="tag" class="tag is-primary">{{tag}}</span>
                                             </div>
