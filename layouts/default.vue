@@ -78,6 +78,30 @@ html {
   margin-top: 14px
 }
 
+.imgContainer {
+  float: left; 
+  overflow: hidden; 
+  width: 33%;
+}
+
+.paddedImage {
+  margin-right: 18px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+  position: relative;
+  height: 0;
+  padding-bottom: 133%;
+  overflow: hidden;
+}
+
+.paddedImage img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+}
+
 .profileImage{
   border-radius: 50%;
   height: 160px;
