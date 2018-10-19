@@ -66,7 +66,8 @@ export default {
       })
     ]).then(([entries]) => {
         if (entries.total == 1) return {
-            blogPost: entries.items[0]
+            blogPost: entries.items[0],
+            
         }
     }).catch(console.error)
   },
@@ -78,6 +79,8 @@ export default {
             { name: "twitter:creator", content: "@debpu06" },
             { property: "og:title", content: `${this.blogPost.fields.title}` },
             { property: 'og:description', content: `${this.blogPost.fields.description}` },
+            { name: 'description', content: `${this.blogPost.fields.description}` },
+            { name: 'keywords', content: `${this.blogPost.fields.tags.join(',')}` },
             { property: 'og:url', content: `~/blog/${this.blogPost.fields.slug}/`},
             { property: 'og:type', content: "website" }
         ]
