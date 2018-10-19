@@ -102,6 +102,22 @@ html {
   left: 0%;
 }
 
+.vid-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.vid-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 .profileImage{
   border-radius: 50%;
   height: 160px;
